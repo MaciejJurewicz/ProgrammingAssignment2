@@ -14,7 +14,6 @@ makeCacheMatrix <- function(x = matrix()) {
   list(set=set, get=get, setMyMatrix=setMyMatrix, getMyMatrix=getMyMatrix)
 }
 
-
 ## Function put entity into matrix.
 
 cacheSolve <- function(x, ...) {
@@ -24,6 +23,6 @@ cacheSolve <- function(x, ...) {
        }
        matrix<-x$get()
        myMatrix<-solve(matrix, ...)
-       x$setmatrix(myMatrix)
+       x$setMyMatrix(myMatrix)
        myMatrix
 }
