@@ -1,15 +1,29 @@
-## Put comments here that give an overall description of what your
-## functions do
 
-## Write a short comment describing this function
+
+## Function create chache matrix.
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  myMatrix <- NULL
+  set<- function(y){
+    x<<-y
+    myMatrix<<-NULL
+  }
+  get<-function()x
+  setMyMatrix <- function(solve) myMatrix<<-solve
+  getMyMatrix <- function() myMatrix
+  list(set=set, get=get, setMyMatrix=setMyMatrix, getMyMatrix=getMyMatrix)
 }
 
 
-## Write a short comment describing this function
+## Function put entity into matrix.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+       myMatrix <- x$getMyMatrix()
+       if(!is.null(myMatrix)){
+         return(myMatrix)
+       }
+       matrix<-x$get()
+       myMatrix<-solve(matrix, ...)
+       x$setmatrix(myMatrix)
+       myMatrix
 }
